@@ -8,11 +8,11 @@ import Container from "@/components/Container/Container";
 import { TabProvider } from "./contexts/TabContext";
 import { NavBar } from "@/components/Navbar/Navbar";
 import Footer from "./footer";
-import { Analytics } from "@vercel/analytics/react"
+// import { Analytics } from "@vercel/analytics/react"
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -51,8 +51,8 @@ export default function RootLayout({
           </NextUIProvider>
         
           <Footer />
-          <Analytics/>
-          <DynamicCookie />
+          {/* <Analytics/> */}
+          {/* <DynamicCookie /> */}
         </Container>
       </body>
 
