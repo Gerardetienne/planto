@@ -1,0 +1,49 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^5.1.0",
+    "@hookform/resolvers": "^3.9.0",
+    "@nextui-org/react": "^2.4.6",
+    "@vercel/analytics": "^1.4.0",
+    "aos": "^2.3.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "critters": "^0.0.25",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.417.0",
+    "my-app": "file:",
+    "next": "14.2.5",
+    "nodemailer": "^6.9.14",
+    "prettier": "^3.3.3",
+    "react": "^18",
+    "react-cookie-consent": "^9.0.0",
+    "react-dom": "^18",
+    "react-hook-form": "^7.52.1",
+    "react-icons": "^5.2.1",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.5",
+    "@types/aos": "^3.0.7",
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.15",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "terser-webpack-plugin": "^5.3.10",
+    "typescript": "^5"
+  }
+}
