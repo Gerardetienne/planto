@@ -15,8 +15,8 @@ const Breath: NextPage<Props> = ({ }) => {
         <div className='flex-auto w-full md:w-[60%] p-0 m-0'>
             <div className='flex flex-col  space-y-64 '>
                 <div className='flex flex-col gap-3  text-basecolor'>
-                    <h1 className='font-extrabold text-[100px] p-0 m-0 '>{"Breath Natureal"}</h1>
-                    <p className='font-light text-[20px] -mt-10 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />incididunt ut labore et dolore magna aliqua.</p>
+                    <h1 className='font-extrabold text-[40px] md:text-[100px] p-0 m-0 '>{"Breath Natureal"}</h1>
+                    <p className='font-light text-[20px] mt-4 lg:-mt-10 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br />incididunt ut labore et dolore magna aliqua.</p>
 
                     <div className='flex flex-row gap-4 items-center '>
 

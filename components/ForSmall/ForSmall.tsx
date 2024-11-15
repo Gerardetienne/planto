@@ -8,9 +8,9 @@ interface Props { }
 const ForSmall: NextPage<Props> = ({ }) => {
     return (
         <div className='w-full h-full px-6 '>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 p-10 backdrop-blur-md bg-[#ffffff10] rounded-[40px] '>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 p-16 backdrop-blur-md bg-[#ffffff10] rounded-[70px] h-auto  w-auto  '>
 
-                <div className='relative w-[80%] lg:w-[70%] -mt-40'>
+                <div className='relative w-full lg:w-[70%]  flex flex-row justify-center md:justify-start'>
                 <Image
                                     radius='full'
                              
@@ -18,7 +18,7 @@ const ForSmall: NextPage<Props> = ({ }) => {
                                     src="/planto/PlanteModel1.png"
                                     loading="lazy"
                                     removeWrapper={true}
-                                    className='flex object-cover w-full h-full '
+                                    className='flex w-auto h-auto md:h-[481px] -mt-40'
                                 />
 
                 </div>

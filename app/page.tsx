@@ -37,7 +37,7 @@ export default async function Index() {
 
           <div className='block w-full  lg:w-[90%] mx-auto'>
           <NavBar />
-          <Spacer className="my-40" />
+          <Spacer className="my-32" />
           <Breath />
            
           <Spacer className="my-10" />
@@ -51,6 +51,15 @@ export default async function Index() {
           <Spacer className="my-32" />
 
           <ForFresh />
+
+
+
+          
+          <Spacer className="my-10" />
+          <OurTrendy espaceY={"py-10"} >
+          Our Top Selling
+          </OurTrendy>
+          <Spacer className="my-10" />
           </div>
 
 
