@@ -20,7 +20,7 @@ const config = {
     extend: {
 
       textColor: {
-        'basesportcolor' : '#FFC63D'
+        'basecolor' : '#C6C8C5'
       },
 
      backgroundImage: {

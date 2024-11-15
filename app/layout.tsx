@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
-import Navbars from "@/components/Header";
 import Container from "@/components/Container/Container";
 import { TabProvider } from "./contexts/TabContext";
 import { NavBar } from "@/components/Navbar/Navbar";
@@ -23,9 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const DynamicCookie = dynamic(() => import('@/components/Cookie/Cookie'), {
-    ssr: false 
-  })
+
   
   useEffect(() => {
     AOS.init();
@@ -44,8 +41,7 @@ export default function RootLayout({
 
       <body className={inter.className}>
         <Container >
-
-          <NavBar />
+          
           <NextUIProvider>
             {children}
           </NextUIProvider>

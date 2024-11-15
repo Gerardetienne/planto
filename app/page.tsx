@@ -7,6 +7,12 @@ import Hero from '@/components/Hero/Hero';
 
 
 import { openGraphImageHome } from './shared-metadata';
+import { NavBar } from '@/components/Navbar/Navbar';
+import Breath from '@/components/Breath/Breath';
+import { Spacer } from '@nextui-org/react';
+import OurTrendy from '@/components/OurTrendy/OurTrendy';
+import ForSmall from '@/components/ForSmall/ForSmall';
+import ForFresh from '@/components/ForFresh/ForFresh';
 
 export const metadata: Metadata = {
     metadataBase: new URL(`${process.env.HOST}`),
@@ -26,16 +32,30 @@ export default async function Index() {
 
     return(
         <div className='w-full'>
-            <Hero />
 
-            {/* <div className="flex justify-center bg-white py-14  ">
-                <div className='flex-initial w-full md:w-[80%] xl:w-[60%]'>
-                <JoinNow />
-                </div>
-            </div> */}
-            
-  
-            {/* <Footer /> */}
+          <div className="w-full min-h-screen bg-[url('/planto/Fond.png')] bg-center bg-no-repeat bg-cover ">
+
+          <div className='block w-full  lg:w-[90%] mx-auto'>
+          <NavBar />
+          <Spacer className="my-40" />
+          <Breath />
+           
+          <Spacer className="my-10" />
+          <OurTrendy espaceY={"py-10"} >
+               Our Trendy plants
+          </OurTrendy>
+          <Spacer className="my-10" />
+
+          <ForSmall />
+
+          <Spacer className="my-32" />
+
+          <ForFresh />
+          </div>
+
+
+          </div>
+                      
         </div>
     )
 }

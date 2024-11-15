@@ -12,18 +12,22 @@ interface Props {
     children:ReactNode | string
     borderColor?:string 
     hoverEffect?:string 
-    size?:ButtonSize
+    size?:ButtonSize,
+    radius?:ButtonSize
 }
 
-const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect}:Props) => {
+const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius }:Props) => {
   return (
   <Button size={size ? size : "md"} 
    
-  radius='none' className={`${colorTxt ? colorTxt : "text-black"}  
+  radius={radius ? radius : "none"} className={`${colorTxt ? colorTxt : "text-black"}  
    ${bgColor ? bgColor : 'bg-bgBaseColor'}
    ${borderColor ? borderColor : ' border-2 border-transparent' }
-   ${hoverEffect ? hoverEffect : 'hover:bg-white hover:z-50'}  uppercase font-semibold z-50`} fullWidth={false} >
-    {children}
+   ${hoverEffect ? hoverEffect : 'hover:bg-white hover:z-50'} my-custome btn uppercase font-semibold z-50  `} fullWidth={false} >
+
+
+  {children}
+   
   
   </Button>
   )

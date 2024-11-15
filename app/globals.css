@@ -75,6 +75,10 @@
   }
 }
 
+.custom-container > nav > header {
+  @apply max-w-full !important
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -97,7 +101,7 @@
   @apply flex;
   @apply items-center;
   @apply justify-center;
-  @apply text-basesportcolor; /* Rouge de classe 'text-red-500' en Tailwind */
+  @apply text-basecolor; /* Rouge de classe 'text-red-500' en Tailwind */
   animation: bounce 1.5s infinite ease-in-out;
   @apply relative;
 
@@ -146,4 +150,55 @@
   .cookieConsent {
     width:auto !important;
 }
+}
+
+button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 12px;
+  right: 20px;
+  transition: 0.5s;
+
+}
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
+button{
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+
+
+.title-container {
+  @apply relative inline-block p-[1px] px-5;
+}
+
+.title-container::before {
+  content: "";
+  position: absolute;
+  border-left: 5px solid #6ec74d;
+  border-bottom: 5px solid #6ec74d;
+  border-bottom-left-radius: 15px;
+  width: 50px;
+  height: 60px;
+  left: -4%;
+  top: 30%;
+
+}
+
+.title-container::after {
+  content: "";
+  position: absolute;
+  border-right: 5px solid #6ec74d;
+  border-top: 5px solid #6ec74d;
+  border-top-right-radius: 15px;
+  width: 50px;
+  height: 60px;
+  right: -4%;
+  bottom: 30%;
+
 }
