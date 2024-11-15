@@ -13,6 +13,7 @@ import { Spacer } from '@nextui-org/react';
 import OurTrendy from '@/components/OurTrendy/OurTrendy';
 import ForSmall from '@/components/ForSmall/ForSmall';
 import ForFresh from '@/components/ForFresh/ForFresh';
+import Card from '@/components/Card/Card';
 
 export const metadata: Metadata = {
     metadataBase: new URL(`${process.env.HOST}`),
@@ -31,11 +32,11 @@ export default async function Index() {
 
 
     return(
-        <div className='w-full'>
+        <div className='w-full bg-[#1b2316] pb-40'>
 
           <div className="w-full min-h-screen bg-[url('/planto/Fond.png')] bg-center bg-no-repeat bg-cover ">
 
-          <div className='block w-full  lg:w-[90%] mx-auto'>
+          <section className='block w-full  lg:w-[90%] mx-auto '>
           <NavBar />
           <Spacer className="my-32" />
           <Breath />
@@ -51,19 +52,28 @@ export default async function Index() {
           <Spacer className="my-32" />
 
           <ForFresh />
-
-
-
           
-          <Spacer className="my-10" />
+      
+          </section>
+
+
+          </div>
+
+
+          <section className='block w-full  lg:w-[90%] mx-auto'>
+          <Spacer className="my-20" />
           <OurTrendy espaceY={"py-10"} >
           Our Top Selling
           </OurTrendy>
-          <Spacer className="my-10" />
-          </div>
+
+          <Spacer className="my-40" />
+
+          <Card />
+
+          </section>
 
 
-          </div>
+
                       
         </div>
     )
