@@ -1,7 +1,8 @@
+"use client"
 import { Button } from '@nextui-org/react'
 import { NextPage } from 'next'
 import { ReactNode } from 'react';
-
+import { useRouter } from 'next/navigation'
 
 type ButtonSize = 
     | "md" | "sm" | "lg"
@@ -13,12 +14,16 @@ interface Props {
     borderColor?:string 
     hoverEffect?:string 
     size?:ButtonSize,
-    radius?:ButtonSize
+    radius?:ButtonSize,
+    link?:string
 }
 
-const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius }:Props) => {
+const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius,link }:Props) => {
+  const router = useRouter()
+
   return (
   <Button size={size ? size : "md"} 
+  onClick={() => router.push(link ? link : '#')}
    
   radius={radius ? radius : "none"} className={`${colorTxt ? colorTxt : "text-black"}  
    ${bgColor ? bgColor : 'bg-bgBaseColor'}

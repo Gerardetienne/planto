@@ -8,7 +8,7 @@ interface Props { }
 const ForFresh: NextPage<Props> = ({ }) => {
     return (
         <div className='w-full h-full px-6 '>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 p-16 backdrop-blur-md bg-[#ffffff10] rounded-[70px] h-auto w-auto '>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 p-16 backdrop-blur-md bg-[#ffffff10] rounded-[70px] h-auto w-auto shadow-sm shadow-white'>
 
 
                 <div className='flex flex-col justify-center gap-4 text-basecolor' >

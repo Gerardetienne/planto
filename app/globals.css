@@ -171,7 +171,9 @@ button{
   transition: 1s ease-in-out;
 }
 
-
+.curved {
+  background: radial-gradient(circle 1200px at 50% -612px,  transparent 630px, #ffffff10 630px, #ffffff10 710px, #ffffff10 710px);
+}
 
 .title-container {
   @apply relative inline-block p-[1px] px-5;
@@ -200,5 +202,19 @@ button{
   height: 60px;
   right: -4%;
   bottom: 30%;
+}
 
+
+ul.slick-dots {
+  /* bottom: -50px !important; */
+  @apply -bottom-[50px] !important;
+}
+.slick-dots li.slick-active button:before{
+  @apply opacity-75;
+  @apply text-white !important;
+
+}
+.slick-dots li button:before{
+  /* color:white  !important; */
+  @apply text-white !important;
 }

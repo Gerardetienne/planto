@@ -8,7 +8,7 @@ interface Props { }
 const ForSmall: NextPage<Props> = ({ }) => {
     return (
         <div className='w-full h-full px-6 '>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 p-16 backdrop-blur-md bg-[#ffffff10] rounded-[70px] h-auto  w-auto  '>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2 p-16 backdrop-blur-md bg-[#ffffff10] rounded-[70px] h-auto  w-auto shadow-sm shadow-white  '>
 
                 <div className='relative w-full lg:w-[70%]  flex flex-row justify-center md:justify-start'>
                 <Image

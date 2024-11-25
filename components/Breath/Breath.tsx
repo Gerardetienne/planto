@@ -84,7 +84,7 @@ const Breath: NextPage<Props> = ({ }) => {
         <div className='flex-auto w-full md:w-[40%] p-0 m-0'>
             <div className='flex flex-row  justify-center items-start'>
 
-                <div className='flex flex-col gap-4  backdrop-blur-md rounded-[40px]  bg-[#ffffff10] w-full md:w-[90%] lg:w-[75%]  p-8'>
+                <div className='flex flex-col gap-4  backdrop-blur-md rounded-[40px]  bg-[#ffffff10] w-full md:w-[90%] lg:w-[75%]  p-8 curved border-l-[1px] border-b-[1px] border-[#ffffff4f] border-t-0 border-r-0  '>
 
 
                     <div className='relative -mt-28 z-50 mb-10'>
