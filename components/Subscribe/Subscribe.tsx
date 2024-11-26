@@ -109,15 +109,15 @@ const Formulaire = ({cssCustom,btnTxt}:Props) => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex w-full flex-wrap md:flex-nowrap gap-1 items-center  ">
+            <div className="flex w-full flex-wrap md:flex-nowrap items-center border border-white rounded  ">
                 <div className='md:w-[70%] w-full'>
                 <Input variant={"underlined"} type="email" {...register("mail")} label="Email" isClearable
-                        className='InputCustom bg-[rgba(256,256,256,0.5)] rounded text-white' />
+                        className='InputCustom  rounded text-white bg-[rgba(256,256,256,0.5)]' />
                     {errors.mail && <p className='text-[#ff0000] text-[12px]'>{errors.mail.message}</p>}
                 </div>
 
-                <div className='md:w-[30%] w-full'>
-                <Button isLoading={load} className={`${cssCustom ? cssCustom : "text-black bg-white border border-bgBaseColor"}  py-7`} radius="none" size='lg'  fullWidth={true} endContent={<BsFillSendFill size={"1.2em"}   />} 
+                <div className='md:w-[30%] w-full p-1 '>
+                <Button isLoading={load} className={`${cssCustom ? cssCustom : "text-black bg-white border border-bgBaseColor "}  py-6`} radius="none" size='md'  fullWidth={true} endContent={<BsFillSendFill size={"1.2em"}   />} 
                  spinner={<Spinner />} type='submit' > {btnTxt ? btnTxt : "Envoyer"}
                  </Button>
                  </div>

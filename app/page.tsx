@@ -73,7 +73,7 @@ export default async function Index() {
 
       </section>
 
-      <section className='block w-full  lg:w-[90%] mx-auto'>
+      <section className='block w-full  lg:w-[90%] mx-auto '>
         
       <Spacer className="my-20" />
         <OurTrendy espaceY={"py-10"} >
