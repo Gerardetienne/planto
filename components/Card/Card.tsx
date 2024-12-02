@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { Image } from "@nextui-org/react";
 import { FaCalendarCheck } from 'react-icons/fa6';
 import {Tooltip, Button} from "@nextui-org/react";
+import CardTooltip from '../CardTooltip/CardTooltip';
 
 interface Props { }
 
@@ -13,6 +14,8 @@ interface ItemCard {
     description: string
     price: string
     addCard: ReactNode | string
+    rating: number 
+    instock: boolean
 }
 
 
@@ -22,21 +25,27 @@ const LiestCard: ItemCard[] = [
         title: "For Small Decs Ai Plat",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua",
         price: "Rs. 599/-",
-        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />
+        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />,
+        rating: 5,
+        instock: true
     },
     {
         image: "/planto/calethea-removebg.png",
         title: "For Small Decs Ai Plat",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua",
         price: "Rs. 599/-",
-        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />
+        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />,
+        rating: 4,
+        instock: true
     },
     {
         image: "/planto/roseGoldopti.png",
         title: "For Small Decs Ai Plat",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua",
         price: "Rs. 599/-",
-        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />
+        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />,
+        rating: 2,
+        instock: false
     },
 
     {
@@ -44,21 +53,27 @@ const LiestCard: ItemCard[] = [
         title: "For Small Decs Ai Plat",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua",
         price: "50 000 Ar",
-        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />
+        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />,
+        rating: 3,
+        instock: true
     },
     {
         image: "/planto/Monogram1.png",
         title: "For Small Decs Ai Plat",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua",
         price: "Rs. 599/-",
-        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />
+        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />,
+        rating: 1,
+        instock: false
     },
     {
         image: "/planto/Monogram2.png",
         title: "For Small Decs Ai Plat",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua",
         price: "Rs. 599/-",
-        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />
+        addCard: <FaCalendarCheck size={"1em"} className='stroke-0' />,
+        rating: 5,
+        instock: true
     }
 ]
 
@@ -69,7 +84,7 @@ const CardContent = ({ item, position }: { item: ItemCard, position:number }) =>
         <Tooltip 
         showArrow
         placement="right"
-        content={item.title}
+        content={<CardTooltip items={item} />}
         classNames={{
           base: [
             // arrow color
@@ -81,7 +96,7 @@ const CardContent = ({ item, position }: { item: ItemCard, position:number }) =>
           ],
         }}
       >
-        <div className={`${position > 2 ? " mt-40 " : " mt-auto "} space-y-4 text-basecolor p-8 backdrop-blur-md bg-[#ffffff10] relative rounded-[40px] curved  border-l-[1px] border-b-[1px] border-[#ffffff4f] border-t-0 border-r-0`} >
+        <div className={`${position > 2 ? " mt-40 " : " mt-auto "} space-y-4 cursor-pointer text-basecolor p-8 backdrop-blur-md bg-[#ffffff10] relative rounded-[40px] curved  border-l-[1px] border-b-[1px] border-[#ffffff4f] border-t-0 border-r-0`} >
 
             <div className='relative mb-10 flex flex-col justify-center items-center cursor-pointer gap-4'>
                 <Image

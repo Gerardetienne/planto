@@ -16,14 +16,16 @@ interface Props {
     size?:ButtonSize,
     radius?:ButtonSize,
     link?:string
+    isDisabled?:boolean
 }
 
-const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius,link }:Props) => {
+const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius,link , isDisabled}:Props) => {
   const router = useRouter()
 
   return (
   <Button size={size ? size : "md"} 
   onClick={() => router.push(link ? link : '#')}
+  isDisabled={ isDisabled == false ? true : false }
    
   radius={radius ? radius : "none"} className={`${colorTxt ? colorTxt : "text-black"}  
    ${bgColor ? bgColor : 'bg-bgBaseColor'}
