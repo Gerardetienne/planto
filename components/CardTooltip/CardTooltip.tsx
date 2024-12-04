@@ -1,26 +1,16 @@
 import { NextPage } from 'next'
 import { ReactNode } from 'react'
-import { Image } from "@nextui-org/react";
+import { Code, Image } from "@nextui-org/react";
 import { RatingBlog } from '../Rating/Rating';
 import ButtonCustom from '../ButtonCustom/ButtonCustom';
 import ShinyButton from '../magicui/shiny-button';
-import { FaRegCircleCheck } from 'react-icons/fa6';
+import { FaCalendarCheck, FaRegCircleCheck } from 'react-icons/fa6';
 import { MdCancel } from 'react-icons/md';
 import Link from 'next/link';
-
-interface ItemCard {
-  image: string
-  title: string
-  description: string
-  price: string
-  addCard: ReactNode | string
-  rating: number
-  instock: boolean
-}
-
+import { DataPlanteTypes, ItemCard } from '@/app/data';
 
 interface Props {
-  items: ItemCard
+  items: DataPlanteTypes
 }
 
 const CardTooltip: NextPage<Props> = ({ items }) => {
@@ -32,13 +22,13 @@ const CardTooltip: NextPage<Props> = ({ items }) => {
         <div className='relative flex flex-col justify-center items-center cursor-pointer '>
           <Image
             alt="NextUI Fruit Image with Zoom"
-            src={items.image}
+            src={items.image_featured}
             loading="lazy"
             removeWrapper={true}
             className='flex  w-auto h-[328px] drop-shadow-md'
           />
 
-          <Link href="#" className=" italic cursor-pointer mt-2" >
+          <Link href={`/plante/${items.id}`} className=" italic cursor-pointer mt-2" >
             <ShinyButton className=' italic font-semibold text-black/50 mb-2' text={" View full details"} />
           </Link>
         </div>
@@ -47,36 +37,30 @@ const CardTooltip: NextPage<Props> = ({ items }) => {
 
       <div className="flex-auto w-[60%] ...">
         <div className='block space-y-8  ' >
-          <h2 className=' text-[1.5rem] font-bold '>{items.title}</h2>
+          <h2 className=' text-[1.5rem] font-bold '>{items.nom}</h2>
 
           <div>
-            <ShinyButton className=' italic font-semibold text-black/50 mb-2' text={items.price + " $"} />
+            <div className='flex flex-row justify-between items-center gap-2 w-full'>
+            <ShinyButton className=' italic font-semibold text-black/50 mb-2  ' text={items.price + " $"} />
+            <Code size="sm" color="success"><p><span className='font-light'>Type:</span> {items.famille}</p></Code>
+            </div>
+        
 
             <RatingBlog star={items.rating} />
           </div>
 
 
-
           <div className='flex flex-row gap-2 items-center '>
-
             {
               items.instock ? <FaRegCircleCheck size={"1.2em"} className={"text-[#6ec74d]"} /> : <MdCancel size={"1.2em"} className={"text-[#FF0000]"} />
             }
-
             In stock and ready to ship
-
           </div>
 
-
-
-          <p className='mb-4'>{items.description}</p>
-
-
+          <p className='mb-4 line-clamp-5'>{items.description}</p>
           <ButtonCustom isDisabled={items.instock} colorTxt={"text-[#1b2316] px-10 "} size={"lg"} bgColor={"bg-white"} borderColor={"border border-white"} radius={"sm"}>
             {"Ajouter au panier"}
           </ButtonCustom>
-
-
         </div>
 
 

@@ -39,8 +39,10 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#1b2316]`}   >
+
         <Container >
+          <NavBar />
           
           <NextUIProvider>
             {children}

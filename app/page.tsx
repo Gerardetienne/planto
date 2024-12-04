@@ -38,9 +38,8 @@ export default async function Index() {
     <div className='w-full bg-[#1b2316] pb-40'>
 
       <div className="w-full min-h-screen bg-[url('/planto/Fond.png')] bg-center bg-no-repeat bg-cover ">
-
         <section className='block w-full  lg:w-[90%] mx-auto '>
-          <NavBar />
+         
           <Spacer className="my-32" />
           <Breath />
 

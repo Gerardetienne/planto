@@ -108,7 +108,7 @@ export const NavBar = () => {
     };
 
     return (
-        <div className="w-full custom-container ">
+        <div className="w-full custom-container block lg:w-[90%] mx-auto  ">
             <Navbar onMenuOpenChange={setIsMenuOpen} position="sticky" className=" bg-transparent   py-6 text-white"> 
                 <NavbarContent justify="start">
                     <NavbarMenuToggle
