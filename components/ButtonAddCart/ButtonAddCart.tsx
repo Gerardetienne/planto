@@ -17,15 +17,15 @@ interface Props {
     radius?:ButtonSize,
     link?:string
     isDisabled?:boolean
-  
+    addCart?: () => void
 }
 
-const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius,link , isDisabled}:Props) => {
+const ButtonAddCart: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,size, hoverEffect,radius,link , isDisabled, addCart}:Props) => {
   const router = useRouter()
 
   return (
   <Button size={size ? size : "md"} 
-
+  onClick={addCart}
   isDisabled={ isDisabled == false ? true : false }
    
   radius={radius ? radius : "none"} className={`${colorTxt ? colorTxt : "text-black"}  
@@ -41,4 +41,4 @@ const ButtonCustom: NextPage<Props> = ({colorTxt,bgColor,children,borderColor,si
   )
 }
 
-export default ButtonCustom
+export default ButtonAddCart

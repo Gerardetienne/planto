@@ -39,6 +39,7 @@ export interface DataPlanteTypes {
     image_featured?:string 
     rating : number
     instock: boolean
+    baseUrl:string
   }
 
 
@@ -58,12 +59,14 @@ export interface DataPlanteTypes {
       "nom_scientifique": "Rosa × damascena",
       "nomenclature": ["Rose à parfum", "Rose de mai"],
       "categorie": "Fleurs",
+      "baseUrl": "/plante1/",
       "image":[
         "/plante1/plante.png",
         "/plante1/plante1.png",
         "/plante1/plante2.png",
         "/plante1/plante3.png"
       ],
+      
       "price": 700,
       "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Pellentesque felis laoreet curabitur dis. Sodales habitant nullam. Eu sem vulputate vel. Taciti penatibus mus bibendum. Dui tempor tempus egestas. Turpis nisl feugiat elementum vehicula. Facilisi tempor mi sapien dapibus. Et ultricies eros finibus. Fusce eleifend primis. Parturient posuere ad vestibulum. Arcu congue arcu."
       
@@ -82,6 +85,7 @@ export interface DataPlanteTypes {
       "nom_scientifique": "Phyllostachys edulis",
       "nomenclature": ["Moso", "Bambou géant"],
       "categorie": "Plantes ornementales",
+      "baseUrl": "/plante2/",
       "image":[
         "/plante2/plante.png",
         "/plante2/plante1.png",
@@ -105,6 +109,7 @@ export interface DataPlanteTypes {
       "nom_scientifique": "Carnegiea gigantea",
       "nomenclature": ["Saguaro", "Cierge géant"],
       "categorie": "Plantes désertiques",
+      "baseUrl": "/plante3/",
       "image":[
         "/plante3/plante.png",
         "/plante3/plante1.png",
@@ -128,6 +133,7 @@ export interface DataPlanteTypes {
       "nom_scientifique": "Paphiopedilum insigne",
       "nomenclature": ["Orchidée sabot", "Sabot de Vénus"],
       "categorie": "Plantes à fleurs",
+      "baseUrl": "/plante4/",
       "image":[
         "/plante4/plante.png",
         "/plante4/plante1.png",
@@ -151,6 +157,7 @@ export interface DataPlanteTypes {
       "nom_scientifique": "Aloe vera",
       "nomenclature": ["Aloès", "Plante des brûlures"],
       "categorie": "Plantes médicinales",
+      "baseUrl": "/plante5/",
       "image":[
         "/plante5/plante.png",
         "/plante5/plante1.png",
@@ -174,9 +181,10 @@ export interface DataPlanteTypes {
       "nom_scientifique": "Lavandula angustifolia",
       "nomenclature": ["Lavande officinale", "Lavande fine"],
       "categorie": "Plantes aromatiques",
+      "baseUrl": "/plante6/",
       "image":[
         "/plante6/plante.png",
-        "/plante6/plante1.png",
+        "/plante6/plante1.jpg",
         "/plante6/plante2.png",
         "/plante6/plante3.png",
         "/plante6/plante4.png"

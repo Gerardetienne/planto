@@ -1,10 +1,11 @@
 "use client"
-import React from "react";
+import React, { useContext } from "react";
 import { useState, FormEvent, useEffect } from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, Badge, Avatar } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 import { MdLogout } from "react-icons/md";
 import { usePathname } from 'next/navigation';
+import CartAdvanceDistribute from "@/app/contexts/CartLocalStorage";
 // interface MenuProps {
 //     client:any
 //     isFilled:any
@@ -13,7 +14,6 @@ import { usePathname } from 'next/navigation';
 export const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const pathname = usePathname();
-
     const menuItems = [
         "Accueil",
         "Landing",
@@ -47,12 +47,12 @@ export const NavBar = () => {
 
     const navigationRight = [
         {
-          image: "/planto/search-interface-symbol 1.png",
+            image: "/planto/search-interface-symbol 1.png",
             link: "/"
         },
         {
             image: "/planto/bag 1.png",
-            link: "/"
+            link: "/cart"
         }
         ,
         {
@@ -67,12 +67,12 @@ export const NavBar = () => {
         const menuItems = navigation.map((item: any, index: number) => (
             <NavbarItem key={item.label} isActive={pathname === item.link} >
 
-                <Link  className="font-light text-white" href={item.link} 
-                    // style={{
-                    // color: pathname === item.link ? '#FFC63D' : 'black',
-                    // fontWeight: pathname === item.link ? 'bold' : 'normal',
-                    //  }}
-                     >
+                <Link className="font-light text-white" href={item.link}
+                // style={{
+                // color: pathname === item.link ? '#FFC63D' : 'black',
+                // fontWeight: pathname === item.link ? 'bold' : 'normal',
+                //  }}
+                >
                     {item.label}
                 </Link>
 
@@ -85,31 +85,66 @@ export const NavBar = () => {
 
     const MenuItemListRight = ({ navigationRight }: any) => {
 
-        const menuItems = navigationRight.map((item: any, index: number) => (
-            <NavbarItem key={index} isActive={pathname === item.link}>
+        const [isClient, setIsClient] = useState(false);
+        const authContext = useContext(CartAdvanceDistribute)
 
-                <Link color="foreground" className="font-light" href={item.link} 
-                     >
-                    <Image
-                            radius="none"
-                            width={20}
-                            height={20}
-                            alt="NextUI Fruit Image with Zoom"
-                            src={item.image}
-                            loading="lazy"
-                            removeWrapper={true}
-                        />
-                </Link>
+        useEffect(() => {
+          setIsClient(true); // Marque que le composant est monté côté client
+        }, []);
+      
+        if (!isClient) {
+          return null; // Empêche le rendu jusqu'à ce que le client soit prêt
+        }
+
+    
+        if (!authContext) {
+            return <div>Chargement...</div>;
+        }
+        const { ItemTotal } = authContext;
+        const ListeItem = ItemTotal()
+
+      
+       const menuItems = navigationRight.map((item: any, index: number) => (
+            <NavbarItem key={index} isActive={pathname === item.link} className={`${item.link === "/cart" ? (ListeItem > 0 ? "image-animate" : "" ) : ""}`}>
+
+                {
+                    item.link === "/cart" ?
+                        <Badge content={ListeItem} color="success"  >
+                            <Avatar
+                                radius="none"
+                                 className={`bg-transparent w-6 h-6 `}
+                                src={item.image}
+                            />
+                        </Badge>
+                        :
+                        <Link color="foreground" className="font-light" href={item.link}
+                        >
+                            <Image
+                                radius="none"
+                                width={20}
+                                height={20}
+                                alt="NextUI Fruit Image with Zoom"
+                                src={item.image}
+                                loading="lazy"
+                                removeWrapper={true}
+                            />
+                        </Link>
+
+                }
+
+
 
             </NavbarItem>
 
         ));
-        return <>{menuItems}</>;
+
+        
+        return isClient &&  <>{menuItems}</>;
     };
 
     return (
         <div className="w-full custom-container block lg:w-[90%] mx-auto  ">
-            <Navbar onMenuOpenChange={setIsMenuOpen} position="sticky" className=" bg-transparent   py-6 text-white"> 
+            <Navbar onMenuOpenChange={setIsMenuOpen} position="sticky" className=" bg-transparent   py-6 text-white">
                 <NavbarContent justify="start">
                     <NavbarMenuToggle
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -117,7 +152,7 @@ export const NavBar = () => {
                     />
                     <NavbarBrand className="hidden md:flex gap-2">
                         <Image
-                            
+
                             radius="none"
                             width={40}
                             height={50}
@@ -156,7 +191,7 @@ export const NavBar = () => {
                                     index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                                 }
                                 className="w-full"
-                                href={ index === 0 ? '/' : (index === 1 ? '/landing' : '#') }
+                                href={index === 0 ? '/' : (index === 1 ? '/landing' : '#')}
                                 size="lg"
                             >
                                 {item}

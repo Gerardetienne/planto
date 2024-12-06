@@ -218,3 +218,23 @@ ul.slick-dots {
   /* color:white  !important; */
   @apply text-white !important;
 }
+
+
+.single-plante .slick-dots li{
+  @apply w-auto;
+}
+
+.image-gallery-thumbnails  img.image-gallery-thumbnail-image {
+  @apply h-20
+}
+.customImageSlide img.image-gallery-image {
+  @apply h-[400px];
+  transition: all .3s ease-in-out;
+
+}
+.customImageSlide img.image-gallery-image:hover {
+  @apply scale-125;
+}
+.single-image{
+  shape-outside: circle(50%);
+}
