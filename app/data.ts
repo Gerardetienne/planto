@@ -42,6 +42,27 @@ export interface DataPlanteTypes {
     baseUrl:string
   }
 
+  export interface test {
+    id: number;
+    nom: string; // Le nom commun de la plante
+    variete: string; // La variété ou l'espèce de la plante
+    variation: string; // Une variation ou un sous-type spécifique
+    lieux_de_cultivation: string; // Les régions principales de cultivation
+    type: string; // Le type de plante (ex: arbuste, herbacée)
+    famille: string; // La famille botanique
+    nom_scientifique: string; // Le nom scientifique officiel
+    nomenclature: string[]; // Les noms communs ou surnoms
+    categorie: string; // La catégorie générale (fleurs, médicinales, etc.)
+    image:string[];
+    price: number;
+    description: string;
+    image_featured?:string 
+    rating : number
+    instock: boolean
+    baseUrl:string
+    quantity: number
+  }
+
 
 
   export const DataPlante: DataPlanteTypes[] = [

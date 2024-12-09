@@ -59,11 +59,9 @@ const AccordionTitle = ({ title }: { title: string }) => {
     return (
         <div className="flex items-center gap-4" onClick={toggle} >
             <h2 className="text-[#c6c8c5] text-[20px] ">👉 {title}</h2>
-
             {
                 open ? <FaBookOpen className="text-[#12A150]" size={"2em"} /> : <FaBook className="text-white" size={"2em"} />
             }
-
         </div>
     )
 }
@@ -98,8 +96,8 @@ const ItemDetailsPage = () => {
     const params = useParams(); // Récupérer les paramètres dynamiques
     const { id } = params; // Extraire 'id'
 
-    const [dataWithQuantity, setDataWithQuantity] = useState([]) as any;
 
+    const [dataWithQuantity, setDataWithQuantity] = useState([]) as any;
     useEffect(() => {
 
         if (typeof window !== "undefined") {
@@ -145,7 +143,7 @@ const ItemDetailsPage = () => {
     }
 
 
-
+   // creer un structure pour le react gallery slide
     const tableGallery: any = [];
     item.image.map((url: any, index: number) => {
         tableGallery.push(
@@ -155,10 +153,6 @@ const ItemDetailsPage = () => {
             }
         )
     })
-
-
-    console.log(item)
-
 
 
     const information: typeInformation[] = [
