@@ -20,14 +20,12 @@ interface Props {
 
 const CardTooltip: NextPage<Props> = ({ items }) => {
 
-
-
   // initialise le useContext
   const authContext = useContext(CartAdvanceDistribute)
   if (!authContext) {
     return <div>Chargement...</div>;
   }
-  const { AddItem, ItemTotal } = authContext;
+  const { AddItem, ItemTotal, cart } = authContext;
 
 
 const ListeItemInCart:number = ItemTotal() 

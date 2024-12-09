@@ -1,10 +1,13 @@
 "use client"
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { Avatar, Badge, Image } from "@nextui-org/react";
-import { FaCalendarCheck } from 'react-icons/fa6';
+import { FaCalendarCheck, FaCartArrowDown } from 'react-icons/fa6';
 import { Tooltip, Button } from "@nextui-org/react";
 import CardTooltip from '../CardTooltip/CardTooltip';
 import { DataPlante, DataPlanteTypes, ItemCard, LiestCard, test } from '@/app/data';
+
+import CartAdvanceDistribute from '@/app/contexts/CartLocalStorage';
+import { useContext } from 'react';
 
 
 interface Props { }
@@ -18,36 +21,38 @@ const isJSON = (value: any): boolean => {
 
 const CardContent = ({ item, position }: { item: DataPlanteTypes, position: number }) => {
 
-    const [inCart, setInCart] = useState([]) as any;
-    const [qt, setQt] = useState(null) as any;
+    const authContext = useContext(CartAdvanceDistribute);
+    // Déstructuration des méthodes et propriétés depuis authContext
+    const AddItem = authContext?.AddItem;
+    const ItemTotal = authContext?.ItemTotal;
+    const cart = authContext?.cart;
+    const CartProduct = cart?.products
 
-    useEffect(() => {
 
-        if (typeof window !== "undefined") {
-            // Vérifier si les données existent dans le localStorage
-            const dataIncart = localStorage.getItem("cart");
-            if (dataIncart) {
-                // Si elles existent, les charger
-                setInCart(JSON.parse(dataIncart));
-            }
+    const getProductQuantity = useCallback(() => {
+        if (CartProduct) {
+
+            // return true si le current id == au id dans le cart
+            const data = CartProduct.find((elem: test) => elem.id === item.id);
+
+            // recupere uniquement le table si le current id == element id dans la cart
+            const currentItemInCart = data ? CartProduct.filter((elem: test) => elem.id === item.id) : [];
+
+            // recuperer chaque quantity pour chaque item
+            const prod = currentItemInCart.length > 0 && currentItemInCart[0]?.quantity ? currentItemInCart[0].quantity : 0;
+            console.log(prod);
+            return prod;
         }
+        return 0;
+    }, [CartProduct,item]);
 
-    }, []);
-
-    let data = false;
-    let currentItemInCart = null;
-    let prod = "";
-    const CartProduct = inCart?.products
-
-    if (CartProduct) {
-        data = CartProduct.find((elem: test) => elem.id === item.id)
-        currentItemInCart = data ? CartProduct.filter((elem: test) => elem.id === item.id) : 0
-        prod = isJSON(currentItemInCart) ? currentItemInCart[0].quantity : 0
-        console.log(prod)
-
+    // Si authContext est null ou undefined, afficher un message de chargement
+    if (!authContext) {
+        return <div>Chargement...</div>;
     }
 
 
+    const quantity = getProductQuantity();
 
     return (
         <Tooltip
@@ -86,11 +91,11 @@ const CardContent = ({ item, position }: { item: DataPlanteTypes, position: numb
                         <p className='font-bold text-[30px] text-success '>{item.price} {" $ "}</p>
                     </div>
 
-                    <Badge color="default" content={prod ? prod : 0} placement="top-left">
+                    <Badge color="default" content={quantity ? quantity : 0} placement="top-left">
                         {/* <Avatar isBordered radius="md" src="https://i.pravatar.cc/150?u=a04258114e29026708c" /> */}
                         <div className='flex flex-row items-center gap-3'>
-                            <div className='border border-white rounded-md p-4'>
-                                <FaCalendarCheck size={"1em"} className='stroke-0' />
+                            <div className='border border-white rounded-md p-2'>
+                                <FaCartArrowDown  size={"1.5em"} className='stroke-0' />
                             </div>
                         </div>
                     </Badge>
@@ -106,6 +111,7 @@ const Card: React.FC<Props> = ({ }) => {
 
 
     const [dataWithQuantity, setDataWithQuantity] = useState([]) as any;
+    
     useEffect(() => {
 
         if (typeof window !== "undefined") {
