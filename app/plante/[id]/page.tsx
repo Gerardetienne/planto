@@ -131,9 +131,6 @@ const ItemDetailsPage = () => {
     const { AddItem, ItemTotal, PriceTotal, QuantityAjuster, RemoveItem, ClearItem, cart } = authContext;
 
 
-
-
-
     // Convertir `id` en nombre car les IDs dans `LiestCard` sont numériques
     const item = dataWithQuantity.find((item: Product) => item.id === Number(id)) as Product;
 

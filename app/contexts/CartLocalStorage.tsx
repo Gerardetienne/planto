@@ -1,5 +1,6 @@
 "use client"
 import React, { createContext,useReducer } from 'react';
+import {Input} from "@nextui-org/react";
 
 type CartType = {
     QuantityAjuster: any ;
@@ -158,9 +159,7 @@ const CartAdvanceDistribute = createContext<CartType | undefined>(undefined);
   const [cart, dispatch] = useReducer(cartReducer,
     initialState
   , (initial) => {
-
     if (typeof window !== "undefined") {
-
         const cartItems = localStorage.getItem('cart');
         return cartItems ? JSON.parse(cartItems) : initial;
     }
@@ -177,7 +176,24 @@ const CartAdvanceDistribute = createContext<CartType | undefined>(undefined);
    * @returns 
    */
   const QuantityAjuster = ({product}:any) => {
-    return <input min="1" max="10" type='number' value={product.quantity} onChange={ (e) => dispatch({ type: 'UpdateQuantity', id: product.id ,quantity: parseInt(e.target.value) })} />
+    return <Input
+    min="1" max="10"
+    label="Quantity"
+    size='sm'
+    variant='underlined'
+    labelPlacement="outside"
+    className='bg-[#ffffff10] text-white'
+    placeholder="0.00"
+    value={product.quantity} onChange={ (e) => dispatch({ type: 'UpdateQuantity', id: product.id ,quantity: parseInt(e.target.value) })}
+    startContent={
+      <div className="pointer-events-none flex items-center">
+        <span className="text-default-400 text-small">$</span>
+      </div>
+    }
+    type="number"
+  />
+
+   //<input min="1" max="10" type='number' value={product.quantity} onChange={ (e) => dispatch({ type: 'UpdateQuantity', id: product.id ,quantity: parseInt(e.target.value) })} />
   }
 
   /**

@@ -44,7 +44,7 @@ const CardContent = ({ item, position }: { item: DataPlanteTypes, position: numb
             return prod;
         }
         return 0;
-    }, [CartProduct,item]);
+    }, [CartProduct]);
 
     // Si authContext est null ou undefined, afficher un message de chargement
     if (!authContext) {
